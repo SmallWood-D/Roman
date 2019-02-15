@@ -3,7 +3,7 @@
 ## Problem definition
 
 MAAPF (Multiple Agent Adversarial path finding) is very similar to the origin problem of [MAPF][1] with one change.  
-The path between positions are under threat – meaning there is a possibility of an agent destruction – stop participant in the solution.
+The path between positions are under threat, meaning there is a possibility of an agent destruction.
 
 ### Terminology
 Graph G = (V, E), graph define the map (area, zone) , and A – agents (a_i).  
@@ -13,21 +13,20 @@ Edges – connection between two position each edge has a time and a threat valu
 Time defined t > 0; Threat defined 0 < p < 1 where 1 is destruction and 0 is no threats at all.  
 
 Agents n agents (a_0 … a_n) each agent has start and target point (a_i,s_i,t_i).  
-No two agents can be in the same vertex in the same time, an agent that was destruct cancel is current vertex.
+No two agents can be in the same vertex in the same time, the destruction of an agent causes its current position (vertex) to be cancelled.  
 Path – (s_i, v_i … v_j, t_i) represent all the vertices agent travers between start and target positions.
-#######
 
-There is a possibility the agent will stop moving for one step or more, represnted asthe same vertex number of times, (…, v_i,v_i,v_i, …).
+There is a possibility the agent will stop moving for one step or more, represented as the same vertex number of times, (…, v_i,v_i,v_i, …).
 
 ### Input 
-Graph and agents (G, A).
-Target function - The function use to approximate a value froma any vertex to the target vertex of specific agent.
-f: (v, t) -> R.
+Graph and agents (G, A).  
+Target function - The function use to approximate a value from any vertex to the target vertex of specific agent.  
+f: (v, t) -> R.  
 The value returned (score) will be use to pick the next edge in every step.
 
-# MAAPF target
+### MAAPF target
 Find P non-conflicts path for each agent from start to target position. 
-The catachrestic of a path is time and survivability chance.
+The characteristics of a path is time and survivability chance.
 Both need to be minimalize as possible.
 
 [1]: http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Applications_files/coop-path-AIIDE.pdf
